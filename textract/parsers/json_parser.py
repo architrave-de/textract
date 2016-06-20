@@ -31,7 +31,7 @@ class Parser(BaseParser):
                 result += self.get_text(item) + ' '
             return result
 
-        if isinstance(deserialized_json, basestring):
+        if isinstance(deserialized_json, str):
             return deserialized_json
         else:
             return ''

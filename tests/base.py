@@ -136,7 +136,7 @@ class BaseParserTestCase(GenericUtilities):
 
     def get_cli_options(self, **kwargs):
         option = ''
-        for key, val in kwargs.iteritems():
+        for key, val in kwargs.items():
             option += '--%s=%s ' % (key, val)
         return option
 

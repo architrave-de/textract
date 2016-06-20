@@ -1,7 +1,7 @@
 import unittest
 import os
 
-import base
+from . import base
 
 
 class PdfTestCase(base.ShellParserTestCase, unittest.TestCase):

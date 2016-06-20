@@ -1,6 +1,6 @@
 import zipfile
 import xml.etree.ElementTree as ET
-import StringIO
+import io
 
 from .utils import BaseParser
 
@@ -19,7 +19,7 @@ class Parser(BaseParser):
 
     def to_string(self):
         """ Converts the document to a string. """
-        buff = u""
+        buff = ""
         for child in self.content.iter():
             if child.tag in [self.qn('text:p'), self.qn('text:h')]:
                 buff += self.text_to_string(child) + "\n"
@@ -29,7 +29,7 @@ class Parser(BaseParser):
         return buff
 
     def text_to_string(self, element):
-        buff = u""
+        buff = ""
         if element.text is not None:
             buff += element.text
         for child in element:
@@ -38,9 +38,9 @@ class Parser(BaseParser):
                 if child.tail is not None:
                     buff += child.tail
             elif child.tag == self.qn('text:s'):
-                buff += u" "
+                buff += " "
                 if child.get(self.qn('text:c')) is not None:
-                    buff += u" " * (int(child.get(self.qn('text:c'))) - 1)
+                    buff += " " * (int(child.get(self.qn('text:c'))) - 1)
                 if child.tail is not None:
                     buff += child.tail
             else:
