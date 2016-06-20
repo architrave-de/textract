@@ -4,7 +4,7 @@ argcomplete
 chardet
 python-pptx>=0.5.1
 python-docx
-pdfminer==20140328
+https://github.com/architrave-de/pdfminer
 beautifulsoup4
 xlrd
 EbookLib
